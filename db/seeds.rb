@@ -20,6 +20,7 @@ a = Project.create(
     phase: phases[0],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
+    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: real.id
   )
@@ -31,6 +32,7 @@ b = Project.create(
     phase: phases[2],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
+    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: sb.id
   )
@@ -42,6 +44,7 @@ c = Project.create(
     phase: phases[1],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
+    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: sb.id
   )
@@ -53,6 +56,7 @@ d = Project.create(
     phase: phases[0],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
+    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: real.id
   )

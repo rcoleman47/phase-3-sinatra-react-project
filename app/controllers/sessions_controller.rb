@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
 
   post '/sessions' do 
    gc = GeneralContractor.find_by(email: params[:email])
-    if gc && gc.authenticate(params[:password])
-      session[:id] = gc.id
-      gc.to_json
-    else 
-      puts "Invalid email or password"
-    end
+   gc_confirm = GeneralContractor.find_by(password_digest: params[:password_digest])
+   if gc_confirm == gc
+    gc.to_json
+   else
+    "401"
+   end
   end
 
   delete '/logout' do
