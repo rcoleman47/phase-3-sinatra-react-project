@@ -8,6 +8,9 @@ gem "sinatra", "~> 2.1"
 # https://github.com/macournoyer/thin
 gem "thin", "~> 1.8"
 
+#Helps create fake seed data quickly
+gem 'faker'
+
 # Rack middleware. Used specifically for parsing the request body into params.
 # https://github.com/rack/rack-contrib
 gem "rack-contrib", "~> 2.3"
@@ -30,6 +33,9 @@ gem "rake", "~> 13.0"
 
 # Provides functionality to interact with a SQLite3 database
 gem "sqlite3", "~> 1.4"
+
+#runs server on http://127.0.0.1:9393 and updates with changes. Better than rerun
+gem 'shotgun'
 
 # Require all files in a folder
 gem "require_all", "~> 3.0"
