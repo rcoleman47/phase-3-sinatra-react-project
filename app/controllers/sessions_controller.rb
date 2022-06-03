@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
    gc = GeneralContractor.find_by(email: params[:email])
    gc_confirm = GeneralContractor.find_by(password_digest: params[:password_digest])
    if gc_confirm == gc
-    gc.to_json(include: {projects: {include: :budget_items}})
+    gc.to_json(include: :projects)
    else
     "401"
    end

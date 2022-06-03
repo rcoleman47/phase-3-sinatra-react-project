@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   # post: /projects
   post "/projects" do
-    Project.find_by(general_contractor_id: params[:id]).to_json
+    GeneralContractor.find(params[:id]).projects.to_json(include: :budget_items)
   end
 
   # POST: new projects
@@ -40,7 +40,9 @@ class ProjectsController < ApplicationController
       duration: params[:duration],
       start_date: params[:start_date]
     )
-    project.to_json
+    response = Project.find(params[:id])
+  
+    response.to_json
   end
 
   # DELETE: 
