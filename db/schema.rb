@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_150534) do
+ActiveRecord::Schema.define(version: 2022_06_02_200130) do
 
   create_table "budget_items", force: :cascade do |t|
     t.integer "number"
     t.string "unit"
     t.float "cost_per_unit"
     t.float "total"
-    t.boolean "subcontracted?"
+    t.boolean "subcontracted"
     t.integer "project_id"
+    t.string "description"
   end
 
   create_table "general_contractors", force: :cascade do |t|

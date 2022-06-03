@@ -5,7 +5,7 @@ class CreateBudgetItems < ActiveRecord::Migration[6.1]
       t.string "unit"
       t.float "cost_per_unit"
       t.float "total"
-      t.boolean "subcontracted?"
+      t.boolean "subcontracted"
       t.integer "project_id"
     end
   end

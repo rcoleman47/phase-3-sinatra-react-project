@@ -2,6 +2,7 @@ puts "🌱 Seeding spices..."
 
 GeneralContractor.destroy_all
 Project.destroy_all
+BudgetItem.destroy_all
 # Subcontractor.destroy_all
 # Estimate.destroy_all
 
@@ -20,7 +21,6 @@ a = Project.create(
     phase: phases[0],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
-    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: real.id
   )
@@ -32,7 +32,6 @@ b = Project.create(
     phase: phases[2],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
-    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: sb.id
   )
@@ -44,7 +43,6 @@ c = Project.create(
     phase: phases[1],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
-    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: sb.id
   )
@@ -56,7 +54,6 @@ d = Project.create(
     phase: phases[0],
     size: Faker::Number.number(digits: 4),
     duration: rand(8..18),
-    total_cost: Faker::Number.number(digits: 7),
     start_date: Faker::Date.between(from: '2022-05-23', to: '2022-12-25'),
     general_contractor_id: real.id
   )
@@ -68,5 +65,48 @@ d = Project.create(
 # electrician = Subcontractor.create(company_name: "Electrician", trade: "Electrical", address: Faker::Address.street_address, email: "electrician@electrical.com", phone_number: Faker::PhoneNumber.cell_phone)
 # mechanical = Subcontractor.create(company_name: "Mechanical", trade: "Total Mechanical", address: Faker::Address.street_address, email: "mechanical@totalmechanical.com", phone_number: Faker::PhoneNumber.cell_phone)
 
+
+5.times do 
+  BudgetItem.create(
+    number: 1,
+    unit: "ls",
+    cost_per_unit: Faker::Number.number(digits: 6),
+    subcontracted: rand(0..1),
+    project_id: a.id,
+    description: Faker::Construction.subcontract_category
+  )
+end
+
+  5.times do 
+    BudgetItem.create(
+      number: 1,
+      unit: "ls",
+      cost_per_unit: Faker::Number.number(digits: 6),
+      subcontracted: rand(0..1),
+      project_id: b.id,
+      description: Faker::Construction.subcontract_category
+    )
+end
+5.times do 
+  BudgetItem.create(
+    number: 1,
+    unit: "ls",
+    cost_per_unit: Faker::Number.number(digits: 6),
+    subcontracted: rand(0..1),
+    project_id: c.id,
+    description: Faker::Construction.subcontract_category
+  )
+end
+
+5.times do 
+  BudgetItem.create(
+    number: 1,
+    unit: "ls",
+    cost_per_unit: Faker::Number.number(digits: 6),
+    subcontracted: rand(0..1),
+    project_id: d.id,
+    description: Faker::Construction.subcontract_category
+  )
+end
 
 puts "✅ Done seeding!"

@@ -1,12 +1,13 @@
+require 'pry'
 class ProjectsController < ApplicationController
 
-  # GET: /projects
-  get "/projects" do
-    Project.all.to_json
+  # post: /projects
+  post "/projects" do
+    Project.find_by(general_contractor_id: params[:id]).to_json
   end
 
-  # POST: /projects
-  post "/projects" do
+  # POST: new projects
+  post "/project" do
     new_project = Project.create(
       title: params[:title],
       location: params[:location],

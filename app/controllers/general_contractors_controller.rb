@@ -2,6 +2,11 @@ require 'pry'
 class GeneralContractorsController < ApplicationController
   set default_content_type: 'application/json'
 
+  get '/general_contractors' do
+    GeneralContractor.all.to_json
+  end
+
+
   # POST: create account
   post "/general_contractors" do
     gc = GeneralContractor.find_by(email: params[:email])
